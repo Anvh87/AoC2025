@@ -6,7 +6,7 @@ limit = 100         # The modulus (wrap-around point)
 start_value = 50
 # ---------------------
 accumulator = start_value
-zero_hits = 0       # <--- NEW: Our "Zero Event" Counter
+zero_hits = 0
 
 print(f"Reading from: {filename}")
 print(f"Start Value: {accumulator}")
@@ -26,7 +26,7 @@ try:
             elif opcode == 'L':
                 accumulator = (accumulator - operand) % limit
             
-            # --- NEW: Zero Detection Logic ---
+            # --- Zero Detection Logic ---
             if accumulator == 0:
                 zero_hits += 1
                 # Optional: Mark the event in the log
